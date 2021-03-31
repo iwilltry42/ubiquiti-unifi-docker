@@ -2,4 +2,4 @@ db.mongo.local=false
 db.mongo.uri=mongodb://{{ getenv "MONGO_USER" }}:{{ getenv "MONGO_PASS" }}@{{ getenv "MONGO_HOST" "mongo" }}:{{ getenv "MONGO_PORT" "27017" }}/{{ getenv "MONGO_DB" "unifi" }}
 statdb.mongo.uri=mongodb://{{ getenv "MONGO_USER" }}:{{ getenv "MONGO_PASS" }}@{{ getenv "MONGO_HOST" "mongo" }}:{{ getenv "MONGO_PORT" "27017" }}/{{ getenv "MONGO_DB" "unifi" }}_stat
 unifi.db.name={{ getenv "MONGO_DB" "unifi" }}
-is_default = false
+is_default={{ getenv "UNIFI_RESET" "false" }}
