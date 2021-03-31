@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   unifi:
+    container_name: unifi
     build: .
     image: iwilltry42/unifi
     ports:
@@ -14,6 +15,7 @@ services:
       MONGO_USER: unifi
       MONGO_PASS: unifi
   mongo:
+    container_name: unifi-mongo
     image: mongo:3.6
     ports:
       - 27017:27017
@@ -26,6 +28,7 @@ services:
       MONGO_INITDB_USER: unifi
       MONGO_INITDB_PASS: unifi
   mongo-express:
+    container_name: unifi-mongo-express
     image: mongo-express
     restart: always
     ports:
