@@ -23,3 +23,6 @@ The docker-compose file and configurations are setup to use an external MongoDB 
 ## To-Do
 
 - [ ] Proper log handling -> stream logs from multiple files to stdout in unifi container
+- [ ] Proper implementation of all options mentioned here: <https://help.ui.com/hc/en-us/articles/205202580-UniFi-Explaining-the-system-properties-File>
+- [ ] init (non PID 1)
+- [ ] non-root
