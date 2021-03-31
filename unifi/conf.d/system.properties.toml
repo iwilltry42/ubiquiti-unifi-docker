@@ -1,0 +1,10 @@
+[template]
+src = "system.properties.tmpl"
+dest = "/usr/lib/unifi/data/system.properties"
+keys = [
+  "MONGO_USER",
+  "MONGO_PASS",
+  "MONGO_HOST",
+  "MONGO_PORT",
+  "MONGO_DB",
+]

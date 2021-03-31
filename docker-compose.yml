@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+  unifi:
+    build: .
+    image: iwilltry42/unifi
+    ports:
+      - 8080:8080
+      - 8443:8443
+      - 8843:8843
+      - 8880:8880
+    depends_on:
+      - mongo
+    environment:
+      MONGO_USER: unifi
+      MONGO_PASS: unifi
+  mongo:
+    image: mongo:3.6
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ubnt-admin
+      MONGO_INITDB_ROOT_PASSWORD: ubnt-admin
+      MONGO_INITDB_DATABASE: unifi
+      MONGO_INITDB_USER: unifi
+      MONGO_INITDB_PASS: unifi
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ubnt-admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ubnt-admin
+    depends_on:
+      - mongo
