@@ -46,7 +46,26 @@ RUN apt-get update && \
   wget "https://github.com/${CONFD_REPO}/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-${OS}-${ARCH}" -O /usr/bin/confd && \
   chmod +x /usr/bin/confd
 
-EXPOSE 8080 8443 8843 8880
+# tcp - mandatory
+# 8080 - device communication
+# 8443 - web admin
+EXPOSE 8080 8443
+
+# udp - mandatory
+# 3478 - STUN
+# 10001 - AP Discovery
+EXPOSE 3478 10001 
+
+# tcp - optional
+# 8843 - unifi guest portal https redirect
+# 8880 - unifi guest portal
+# 6789 - mobile throughput test
+EXPOSE 8843 8880 6789
+
+# udp - optional
+# 1900 - make controller discoverable on L2 network
+# 5514 - remote syslog
+EXPOSE 1900 5514
 
 ENTRYPOINT [ "bash", "-c" ]
 

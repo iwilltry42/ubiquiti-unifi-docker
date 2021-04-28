@@ -5,10 +5,15 @@ services:
     build: .
     image: iwilltry42/unifi
     ports:
-      - 8080:8080
-      - 8443:8443
-      - 8843:8843
-      - 8880:8880
+      - 8080:8080 # 8080 - device communication
+      - 8443:8443 # 8443 - web admin
+      - 8843:8843 # (optional) 8843 - unifi guest portal https redirect
+      - 8880:8880 # (optional) 8880 - unifi guest portal
+      - 6789:6789 # (optional) 6789 - mobile throughput test
+      - 3478:3478/udp # 3478 - STUN
+      - 10001:10001/udp # 10001 - AP Discovery
+      - 1900:1900/udp # (optional) 1900 - make controller discoverable on L2 network
+      - 5514:5514/udp # (optional) 5514 - remote syslog
     depends_on:
       - mongo
     environment:
