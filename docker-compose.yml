@@ -29,6 +29,7 @@ services:
       - 27017:27017
     volumes:
       - ./mongo/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./.local/mongo/data:/data/db # mongo database directory
     environment:
       MONGO_INITDB_ROOT_USERNAME: ubnt-admin
       MONGO_INITDB_ROOT_PASSWORD: ubnt-admin
