@@ -1,3 +1,5 @@
+**Replaced by https://github.com/iwilltry42/unifi-docker**
+
 # Ubiquiti Unifi - Docker Image
 
 This repo packages the Unifi controller (Web Interface) in a Docker container.
